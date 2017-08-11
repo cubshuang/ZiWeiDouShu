@@ -1,4 +1,4 @@
-#ZiweiDouShu
+# ZiweiDouShu
 
 **ZiweiDouShu** 是一個以Html+JavaScript+CSS寫成的簡易紫微斗數命盤產生網頁工具
 >**ZiweiDouShu** is a simple web page for generate ZiWeiDouShu Chart
