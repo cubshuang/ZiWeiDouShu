@@ -13,10 +13,10 @@ var ziwei = {
 	},
 	setNowDate:function (){
 		this.getNowDate();
-		this.genLunarDate();
+		this.genZiwei();
 	},
 	//取得農曆時辰，排紫微命盤
-	genLunarDate:function (){
+	genZiwei:function (){
 		var y,m,d,h;
   		y=$("#sel_Year_CE").val();
 		m=$("#sel_Month_CE").val();
@@ -128,7 +128,8 @@ var ziwei = {
 		//安五行局
 		f=FiveElements[FiveEleArr[y1Pos%5][((lPos-(lPos%2==0?0:1))/2)%6]];
 		$("#mainHome").append("<div>"+f+"</div>")
-					  .append("<div>").append(YinYang[y1Pos%2]).append(g=="M"?"男":"女").append("</div>");
+					  .append("<div>").append(YinYang[y1Pos%2]).append(g=="M"?"男":"女").append("</div>")
+						.append("<div class='maincopy'>by cubshuang</div>");
 		//起紫微表
 		z=EarthlyBranches[FiveEleTable[jQuery.inArray(f,FiveElements)][d-1]];
 		zPos=jQuery.inArray(z,EarthlyBranches);
@@ -244,10 +245,9 @@ var ziwei = {
 //使用
 $(document).ready(function () {
   ziwei.initial();
-  $("#goQueryCE").click(function () {ziwei.genLunarDate();});
+  $("#goQueryCE").click(function () {ziwei.genZiwei();});
   $("#getNowDate").click(function () {ziwei.setNowDate();});
   $("#getCalendar").click(function () {ziwei.cleanZiwei();});
   $("select").change(function () {ziwei.cleanZiwei();});
-  $(".mainDiv").click(function () { ziwei.getPalceMemo(this.id); });
   $(window).resize(function() { ziwei.resize();});
 });

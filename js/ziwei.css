@@ -1,6 +1,6 @@
-body { padding: 15px 20px 20px 20px;margin: 0;font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; background-image:url('star.png');background-repeat:repeat;}
+body { padding: 15px 20px 20px 20px;margin: 0;font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; background-image:url('../img/star.png');background-repeat:repeat;}
 table{border:3px #000007 solid; padding:1px;}
-#divZiWei,#main,.StarA,.StarB,.StarC,.MangA,.MangB,.MangC,.MangY10,.MangY1{position:absolute;}
+#divZiWei,#main,.StarA,.StarB,.StarC,.MangA,.MangB,.MangC,.MangY10,.MangY1,.maincopy{position:absolute;}
 #container{position:relative;}
 #menu{position:absolute;top:0;right:0;display:none;}
 #queryDiv{ margin:-3px 0 8px 0;}
@@ -8,11 +8,12 @@ table{border:3px #000007 solid; padding:1px;}
 #queryDiv input[type=button],select,input[type=radio]:first-of-type{margin-left:15px;}
 #sel_Launar{display:none;}
 #sel_Solar{background-color:#CCFFCC;border: 3px solid #CCFFCC;margin:5px 0 10px 0;}
-.mainDiv,.mainDivCenter{background-image:url('star_empty.png');background-repeat:repeat;}
+.mainDiv,.mainDivCenter{background-image:url('../img/star_empty.png');background-repeat:repeat;}
 .mainDiv{border:1px solid #B7B7B7;margin:1px;width:150px;height:150px;position:relative;font-size:12px;}
 .mainDivSel,.mainDiv:hover {border:dashed 2pt red;margin:0px;}
 .mainDivCenter{position:relative;border:1px solid #B7B7B7;margin:1px;width:308px;height:308px;font-weight: bold;}
 .mainDivCenter div{text-align:left;margin:10px;}
+.mainDivCenter .maincopy{bottom:0;right:0;font-size:12px;font-weight: normal;}
 .starDiv{border:0px solid blue;margin:5px;}
 .StarA{text-align: right;top:0;right:0;color:blue;}
 .StarA span{color:Fuchsia;margin-right:3px;}
