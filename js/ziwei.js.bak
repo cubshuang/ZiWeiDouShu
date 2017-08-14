@@ -28,7 +28,7 @@ var ziwei = {
 					.append("生肖屬【"+ShengXiaoGB[(LunarDate.Year - 4) % 12]+"】")           .append("<br>");
 		//農曆日期
 		$("#sel_Year").val(HeavenlyStems[(LunarDate.Year - 4) % 10]+EarthlyBranches[(LunarDate.Year - 4) % 12]);
-		$("#sel_Month").val(LunarDate.Month>0?LunarDate.Month:LunarDate.Month*(-1));
+		$("#sel_Month").val(LunarDate.Month);
 		$("#sel_Day").val(LunarDate.Day);
 		$("#sel_Hour").val(h);
 		//排紫微命盤
