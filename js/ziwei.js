@@ -248,6 +248,6 @@ $(document).ready(function () {
   $("#goQueryCE").click(function () {ziwei.genZiwei();});
   $("#getNowDate").click(function () {ziwei.setNowDate();});
   $("#getCalendar").click(function () {ziwei.cleanZiwei();});
-  $("select").change(function () {ziwei.cleanZiwei();});
+  $("select, input[type=radio]").change(function () {ziwei.cleanZiwei();});
   $(window).resize(function() { ziwei.resize();});
 });
