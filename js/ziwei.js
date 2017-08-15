@@ -54,41 +54,10 @@
 					.append("<div>"+ ziwei.getFiveElement() +"</div>")
 					.append("<div>"+ ziwei.getYinYangGender()+"</div>")
 					.append("<div class='maincopy'>by cubshuang</div>");
-		//render StarA&B function
-		function renderRight(){
-			for (j=0;j<zw[i].Star6.length;j++){
-		  		StarA1+="<span>"+zw[i].Star6[j].substring(0,1)+"</span>"
-		  		StarA2+="<span>"+zw[i].Star6[j].substring(1,2)+"</span>"
-		  		StarA3+=(zw[i].Star6[j].length>2)?"<b>"+zw[i].Star6[j].substring(3,4)+"</b>":"　";
-	  		}
-	  		for (j=0;j<zw[i].StarA.length;j++){
-	  			StarA1+=zw[i].StarA[j].substring(0,1);
-	  			StarA2+=zw[i].StarA[j].substring(1,2);
-	  			StarA3+=(zw[i].StarA[j].length>2)?"<b>"+zw[i].StarA[j].substring(3,4)+"</b>":"　";
-	  		}
-	  		for (j=0;j<zw[i].StarB.length;j++){
-	  			StarB1+=zw[i].StarB[j].substring(0,1);
-	  			StarB2+=zw[i].StarB[j].substring(1,2);
-			}
-
-		}
-		function renderLeft(){
-			for (j=zw[i].StarA.length-1;j>=0;j--){
-	  			StarA1+=zw[i].StarA[j].substring(0,1);
-	  			StarA2+=zw[i].StarA[j].substring(1,2);
-	  			StarA3+=(zw[i].StarA[j].length>2)?"<b>"+zw[i].StarA[j].substring(3,4)+"</b>":"　";
-	  		}
-	  		for (j=zw[i].Star6.length-1;j>=0;j--){
-		  		StarA1+="<span>"+zw[i].Star6[j].substring(0,1)+"</span>"
-		  		StarA2+="<span>"+zw[i].Star6[j].substring(1,2)+"</span>"
-		  		StarA3+=(zw[i].Star6[j].length>2)?"<b>"+zw[i].Star6[j].substring(3,4)+"</b>":"　";
-	  		}
-	  		for (j=zw[i].StarB.length-1;j>=0;j--){
-	  			StarB1+=zw[i].StarB[j].substring(0,1);
-	  			StarB2+=zw[i].StarB[j].substring(1,2);
-			}
-		}
-	    //render Star
+	    //render Direction
+		var styleLR=[" zwStarLeft"," zwStarRight"];
+		if(this.right2left){ styleLR.reverse(); }
+		//render Star
 	    for (i=0;i<12;i++){
 	    	$("#main"+(i+1).toString())
 				.append("<div class='MangA'>" + zw[i].MangA + "</div>")
@@ -97,19 +66,42 @@
 	  			.append("<div class='StarAll'>" + zw[i].StarAll + "</div>");
 	  		var StarA1,StarA2,StarA3,StarB1,StarB2,StarC1,StarC2;
 	  		StarA1="";StarA2="";StarA3="";StarB1="";StarB2="";StarC1="";StarC2="";
-	  		(this.right2left)?renderRight():renderLeft();
-	  		//render StarC
+			var tmpSatrA=[[],[],[]];
+			var k=0;
+			for (j=0;j<zw[i].StarA.length;j++){
+				tmpSatrA[0][k]=zw[i].StarA[j].substring(0,1);
+	  			tmpSatrA[1][k]=zw[i].StarA[j].substring(1,2);
+	  			tmpSatrA[2][k]=(zw[i].StarA[j].length>2)?"<b>"+zw[i].StarA[j].substring(3,4)+"</b>":"　";
+				k+=1;
+			}	
+			for (j=0;j<zw[i].Star6.length;j++){
+		  		tmpSatrA[0][k]="<span>"+zw[i].Star6[j].substring(0,1)+"</span>"
+		  		tmpSatrA[1][k]="<span>"+zw[i].Star6[j].substring(1,2)+"</span>"
+		  		tmpSatrA[2][k]=(zw[i].Star6[j].length>2)?"<b>"+zw[i].Star6[j].substring(3,4)+"</b>":"　";
+				k+=1;
+			}
+			//style Left or Right
+			if(this.right2left){
+				for(j=0;j<3;j++){ tmpSatrA[j].reverse(); }
+			}
+			//render StarA & B & C
+	  		for (j=0;j<tmpSatrA[0].length;j++){
+				StarA1+=tmpSatrA[0][j];
+	  			StarA2+=tmpSatrA[1][j];
+	  			StarA3+=tmpSatrA[2][j];
+	  		}
+	  		for (j=0;j<zw[i].StarB.length;j++){
+	  			StarB1+=zw[i].StarB[j].substring(0,1);
+	  			StarB2+=zw[i].StarB[j].substring(1,2);
+			}
 	  		for (j=0;j<zw[i].StarC.length;j++){
 	  			StarC1+=zw[i].StarC[j].substring(0,1)
 	  			StarC2+=zw[i].StarC[j].substring(1,2)
 		  	}
 	  		//render
-	  		var sl,sr;
-	  		sl=this.right2left?" zwStarRight":" zwStarLeft";
-	  		sr=this.right2left?" zwStarLeft":" zwStarRight";
 			$("#main"+(i+1).toString())
-	  			.append("<div class='StarA"+ sl + "'>" + StarA1+ "<br>"+StarA2 + "<br><div class='Star4'>"+StarA3 + "</div></div>")
-	  			.append("<div class='StarB"+ sr + "'>" + StarB1+ "<br>"+StarB2 + "</div>")
+	  			.append("<div class='StarA"+ styleLR[0] + "'>" + StarA1+ "<br>"+StarA2 + "<br><div class='Star4'>"+StarA3 + "</div></div>")
+	  			.append("<div class='StarB"+ styleLR[1] + "'>" + StarB1+ "<br>"+StarB2 + "</div>")
 	  			.append("<div class='StarC'>" + StarC1+ "<br>"+StarC2 + "</div>")
 		}
 		//大小限表
@@ -139,7 +131,6 @@ var ziwei = {
 		d=LunarDate.Day;
 		h=h_Solar;
 		g=g_Solar;
-		Place=new Array();
 		//年:天干地支
 		y1Pos=jQuery.inArray(y.substring(0,1),HeavenlyStems);
 		y2Pos=jQuery.inArray(y.substring(1,2),EarthlyBranches);
