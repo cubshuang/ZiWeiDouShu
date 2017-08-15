@@ -34,22 +34,16 @@
 	  //初始日期
 	  this.getNowDate();
 	  this.clearPalce();
-	  for (i=0;i<12;i++){
-	  	$("#main"+(i+1).toString()).append("<div class='MangA'>" +EarthlyBranches[i]+ "</div>");
-	  }
-
 	},
 	clearPalce:function (){
-		for (i=0;i<12;i++){
-			$("#main"+(i+1).toString()).html("").css("background-color","").removeClass("mainDivSel");
+		for (i=0;i<12;i++){ 
+			$("#main"+(i+1).toString()).html("").css("background-color","").removeClass("mainDivSel")
+			.append("<div class='MangA'>" +EarthlyBranches[i]+ "</div>");
 		}
 	},
 	cleanZiwei:function (){
-			$("#mainHome").html("");
-			this.clearPalce();
-			for (i=0;i<12;i++){
-	  		$("#main"+(i+1).toString()).append("<div class='MangA'>" +EarthlyBranches[i]+ "</div>");
-	  	}
+		$("#mainHome").html(""); 
+		this.clearPalce();
 	},
 	genZiwei:function(){
 		var zw = ziwei.computeZiWei( $("#sel_Year").val(), $("#sel_Month").val(), $("#sel_Day").val(), $("#sel_Hour").val(), $('input[name=gender]:checked').val());
@@ -60,6 +54,40 @@
 					.append("<div>"+ ziwei.getFiveElement() +"</div>")
 					.append("<div>"+ ziwei.getYinYangGender()+"</div>")
 					.append("<div class='maincopy'>by cubshuang</div>");
+		//render StarA&B function
+		function renderRight(){
+			for (j=0;j<zw[i].Star6.length;j++){
+		  		StarA1+="<span>"+zw[i].Star6[j].substring(0,1)+"</span>"
+		  		StarA2+="<span>"+zw[i].Star6[j].substring(1,2)+"</span>"
+		  		StarA3+=(zw[i].Star6[j].length>2)?"<b>"+zw[i].Star6[j].substring(3,4)+"</b>":"　";
+	  		}
+	  		for (j=0;j<zw[i].StarA.length;j++){
+	  			StarA1+=zw[i].StarA[j].substring(0,1);
+	  			StarA2+=zw[i].StarA[j].substring(1,2);
+	  			StarA3+=(zw[i].StarA[j].length>2)?"<b>"+zw[i].StarA[j].substring(3,4)+"</b>":"　";
+	  		}
+	  		for (j=0;j<zw[i].StarB.length;j++){
+	  			StarB1+=zw[i].StarB[j].substring(0,1);
+	  			StarB2+=zw[i].StarB[j].substring(1,2);
+			}
+
+		}
+		function renderLeft(){
+			for (j=zw[i].StarA.length-1;j>=0;j--){
+	  			StarA1+=zw[i].StarA[j].substring(0,1);
+	  			StarA2+=zw[i].StarA[j].substring(1,2);
+	  			StarA3+=(zw[i].StarA[j].length>2)?"<b>"+zw[i].StarA[j].substring(3,4)+"</b>":"　";
+	  		}
+	  		for (j=zw[i].Star6.length-1;j>=0;j--){
+		  		StarA1+="<span>"+zw[i].Star6[j].substring(0,1)+"</span>"
+		  		StarA2+="<span>"+zw[i].Star6[j].substring(1,2)+"</span>"
+		  		StarA3+=(zw[i].Star6[j].length>2)?"<b>"+zw[i].Star6[j].substring(3,4)+"</b>":"　";
+	  		}
+	  		for (j=zw[i].StarB.length-1;j>=0;j--){
+	  			StarB1+=zw[i].StarB[j].substring(0,1);
+	  			StarB2+=zw[i].StarB[j].substring(1,2);
+			}
+		}
 	    //render Star
 	    for (i=0;i<12;i++){
 	    	$("#main"+(i+1).toString())
@@ -67,41 +95,10 @@
 				.append("<div class='MangB'>" + zw[i].MangB + "</div>")
 				.append("<div class='MangC'>" + zw[i].MangC + "</div>")
 	  			.append("<div class='StarAll'>" + zw[i].StarAll + "</div>");
-
 	  		var StarA1,StarA2,StarA3,StarB1,StarB2,StarC1,StarC2;
 	  		StarA1="";StarA2="";StarA3="";StarB1="";StarB2="";StarC1="";StarC2="";
-	  		if (this.right2left){
-	  			for (j=0;j<zw[i].Star6.length;j++){
-		  			StarA1+="<span>"+zw[i].Star6[j].substring(0,1)+"</span>"
-		  			StarA2+="<span>"+zw[i].Star6[j].substring(1,2)+"</span>"
-		  			StarA3+=(zw[i].Star6[j].length>2)?"<b>"+zw[i].Star6[j].substring(3,4)+"</b>":"　";
-	  			}
-	  			for (j=0;j<zw[i].StarA.length;j++){
-	  				StarA1+=zw[i].StarA[j].substring(0,1)
-	  				StarA2+=zw[i].StarA[j].substring(1,2)
-	  				StarA3+=(zw[i].StarA[j].length>2)?"<b>"+zw[i].StarA[j].substring(3,4)+"</b>":"　";
-	  			}
-	  			for (j=0;j<zw[i].StarB.length;j++){
-	  				StarB1+=zw[i].StarB[j].substring(0,1)
-	  				StarB2+=zw[i].StarB[j].substring(1,2)
-				}
-	  		}else{
-	  			for (j=zw[i].StarA.length-1;j>=0;j--){
-	  				StarA1+=zw[i].StarA[j].substring(0,1)
-	  				StarA2+=zw[i].StarA[j].substring(1,2)
-	  				StarA3+=(zw[i].StarA[j].length>2)?"<b>"+zw[i].StarA[j].substring(3,4)+"</b>":"　";
-	  			}
-	  			for (j=zw[i].Star6.length-1;j>=0;j--){
-		  			StarA1+="<span>"+zw[i].Star6[j].substring(0,1)+"</span>"
-		  			StarA2+="<span>"+zw[i].Star6[j].substring(1,2)+"</span>"
-		  			StarA3+=(zw[i].Star6[j].length>2)?"<b>"+zw[i].Star6[j].substring(3,4)+"</b>":"　";
-	  			}
-	  			for (j=zw[i].StarB.length-1;j>=0;j--){
-	  				StarB1+=zw[i].StarB[j].substring(0,1)
-	  				StarB2+=zw[i].StarB[j].substring(1,2)
-				}
-	  		}
-	  		//C
+	  		(this.right2left)?renderRight():renderLeft();
+	  		//render StarC
 	  		for (j=0;j<zw[i].StarC.length;j++){
 	  			StarC1+=zw[i].StarC[j].substring(0,1)
 	  			StarC2+=zw[i].StarC[j].substring(1,2)
@@ -185,8 +182,6 @@ var ziwei = {
 		bPos=jQuery.inArray(b,EarthlyBranches);
 		//安五行局
 		f=FiveElements[FiveEleArr[y1Pos%5][((lPos-(lPos%2==0?0:1))/2)%6]];
-		$("#mainHome").append("<div>"+f+"</div>")
-					  .append("<div>").append(YinYang[y1Pos%2]).append(g=="M"?"男":"女").append("</div>");
 		//起紫微表
 		z=EarthlyBranches[FiveEleTable[jQuery.inArray(f,FiveElements)][d-1]];
 		zPos=jQuery.inArray(z,EarthlyBranches);
@@ -211,39 +206,18 @@ var ziwei = {
 			var StarA,StarB,StarC,Star6;
 			var lenStar=[0,0,0,0];
 			StarA=[];StarB=[];StarC=[];Star6=[];
-			//其他星矅
-			for (k=0;k<5;k++){
-				if (OS05[k]==i){
-					StarC[lenStar[2]]=StarO_S05[k];
-					lenStar[2]+=1;
-				}
-			}
-			//六凶星
-			for (k=0;k<6;k++){
-				if (sB06[k]==i){
-					StarB[lenStar[1]]=StarM_B06[k];
-					lenStar[1]+=1;
-				}
-			}
-			//六吉星
-			for (k=0;k<=6;k++){
-				if (sG07[k]==i){
-					Star6[lenStar[3]]=StarM_A07[k]+this.getS04Str(StarM_A07[k],sS04);
-					lenStar[3]+=1;
-				}
-			}
-			//天府星系
 			for (k=0;k<8;k++){
-				if (sT08[k]==i){
-					StarA[lenStar[0]]=StarM_A14[k+6]+this.getS04Str(StarM_A14[k+6],sS04);
-					lenStar[0]+=1;
-				}
-			}
-			//紫微星系
-			for (k=0;k<6;k++){
-				if (sZ06[k]==i){
-					StarA[lenStar[0]]=StarM_A14[k]+this.getS04Str(StarM_A14[k],sS04);
-					lenStar[0]+=1;
+				//天府星系
+				if (sT08[k]==i){ StarA[lenStar[0]]=StarM_A14[k+6]+this.getS04Str(StarM_A14[k+6],sS04); lenStar[0]+=1; }
+				if (k<6){
+					//紫微星系 & 六凶星 & 六吉星
+					if (sZ06[k]==i){ StarA[lenStar[0]]=StarM_A14[k]+this.getS04Str(StarM_A14[k],sS04); lenStar[0]+=1; }
+					if (sB06[k]==i){ StarB[lenStar[1]]=StarM_B06[k]; lenStar[1]+=1;}
+					if (sG07[k]==i){ Star6[lenStar[3]]=StarM_A07[k]+this.getS04Str(StarM_A07[k],sS04); lenStar[3]+=1; }
+					//其他星矅StarO_S0.length
+					if (k<5){
+						if (OS05[k]==i){ StarC[lenStar[2]]=StarO_S05[k]; lenStar[2]+=1;}
+					}
 				}
 			}
 			//塞入位置
