@@ -1,7 +1,7 @@
 /*紫微斗數 Chinese Astrology Zi Wei Dou Shu*/
  var ziweiUI = {
 	//主星列印方向 true:由右向左,false:由左向右
-	right2left:false,
+	right2left:true,
 	//UI resize
 	resize:function (){
 		var wdth=$(window).width();
@@ -22,6 +22,7 @@
 	},
 	//initial    	  
 	initial:function (){
+	  this.resize();
 	  //畫紫微斗數空表格
 	  $("#container").append("<div id='main'><div id='queryDiv'><b>紫微斗數命盤</b><div id='sel_Solar'>西元<select id='sel_Year'></select> 年<select id='sel_Month'></select> 月<select id='sel_Day'></select> 日<select id='sel_Hour'></select> 時<input type='radio' id='gender' name='gender' value='M' checked>男<input type='radio' name='gender' value='F'>女<input type='button' value='現在時間*' id='btnNowDate'></div></div><table border='0'><tr><td><div id='main6' class='mainDiv'></div></td><td><div id='main7' class='mainDiv'></div></td><td><div id='main8' class='mainDiv'></div></td><td><div id='main9' class='mainDiv'></div></td></tr><tr><td><div id='main5' class='mainDiv'></div></td><td rowspan='2' colspan='2'><div id='mainHome' class='mainDivCenter'></div></td><td><div id='main10' class='mainDiv'></div></td></tr><tr><td><div id='main4' class='mainDiv'></div></td><td><div id='main11' class='mainDiv'></div></td></tr><tr><td><div id='main3' class='mainDiv'></div></td><td><div id='main2' class='mainDiv'></div></td><td><div id='main1' class='mainDiv'></div></td><td><div id='main12' class='mainDiv'></div></td></tr></table></div>");
 	  for (i=1900;i<=2049;i++){ $("#sel_Year").append($("<option></option>").attr("value",i).text(i)); }
@@ -31,8 +32,9 @@
 	  	var w=EarthlyBranches[i]+"【"+((24+(i*2-1))%24).toString()+"~"+ (i*2+1).toString()+"】";
 	  	$("#sel_Hour").append($("<option></option>").attr("value", EarthlyBranches[i]).text(w));}
 	  //初始日期
-	  this.genNowDateZiwei();
-	  this.resize();
+	  this.getNowDate();
+	  this.clearPalce();
+	  ziweiUI.genNowDateZiwei();
 	},
 	clearPalce:function (){
 		for (i=0;i<12;i++){ 
@@ -115,6 +117,7 @@
 //開始使用
 $(document).ready(function () {
 	ziweiUI.initial();
+	ziweiUI.right2left=false;
 	$("#btnNowDate").click(function () {ziweiUI.genNowDateZiwei();});
 	$("select, input[type=radio]").change(function () {ziweiUI.genZiwei();});
 	$(window).resize(function() { ziweiUI.resize();});
