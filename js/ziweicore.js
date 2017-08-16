@@ -82,12 +82,21 @@ var ziwei = {
 		for (i=0;i<12;i++){
 			var StarA,StarB,StarC,Star6,lenStar=[0,0,0,0];
 			StarA=[];StarB=[];StarC=[];Star6=[];
+			//天府星系
 			for (k=0;k<8;k++){
-				//天府星系 & 紫微星系 & 六凶星 & 六吉星 & 其他星矅StarO_S0.length
 				if (sT08[k]==i){ StarA[lenStar[0]]=StarM_A14[k+6]+this.getS04Str(StarM_A14[k+6],sS04); lenStar[0]+=1; }
+			}
+			//紫微星系 & 六凶星 
+			for (k=0;k<6;k++){
 				if (sZ06[k]==i){ StarA[lenStar[0]]=StarM_A14[k]+this.getS04Str(StarM_A14[k],sS04); lenStar[0]+=1; }
 				if (sB06[k]==i){ StarB[lenStar[1]]=StarM_B06[k]; lenStar[1]+=1;}
+			}
+			//六吉星
+			for (k=0;k<7;k++){
 				if (sG07[k]==i){ Star6[lenStar[3]]=StarM_A07[k]+this.getS04Str(StarM_A07[k],sS04); lenStar[3]+=1; }
+			}
+			//其他星矅StarO_S0.length
+			for (k=0;k<5;k++){
 				if (OS05[k]==i){ StarC[lenStar[2]]=StarO_S05[k]; lenStar[2]+=1;}
 			}
 			//塞入位置
