@@ -24,7 +24,7 @@
 	initial:function (){
 	  this.resize();
 	  //畫紫微斗數空表格
-	  $("#container").append("<div id='main'><div id='queryDiv'><b>紫微斗數命盤</b><input type='button' value='現在時間*' id='btnNowDate'><div id='sel_Solar'>西元<select id='sel_Year'></select> 年<select id='sel_Month'></select> 月<select id='sel_Day'></select> 日<select id='sel_Hour'></select> 時<input type='radio' id='gender' name='gender' value='M' checked>男<input type='radio' name='gender' value='F'>女<input type='button' value='查詢' id='goQuery'></div></div><table border='0'><tr><td><div id='main6' class='mainDiv'></div></td><td><div id='main7' class='mainDiv'></div></td><td><div id='main8' class='mainDiv'></div></td><td><div id='main9' class='mainDiv'></div></td></tr><tr><td><div id='main5' class='mainDiv'></div></td><td rowspan='2' colspan='2'><div id='mainHome' class='mainDivCenter'></div></td><td><div id='main10' class='mainDiv'></div></td></tr><tr><td><div id='main4' class='mainDiv'></div></td><td><div id='main11' class='mainDiv'></div></td></tr><tr><td><div id='main3' class='mainDiv'></div></td><td><div id='main2' class='mainDiv'></div></td><td><div id='main1' class='mainDiv'></div></td><td><div id='main12' class='mainDiv'></div></td></tr></table></div>");
+	  $("#container").append("<div id='main'><div id='queryDiv'><b>紫微斗數命盤</b><div id='sel_Solar'>西元<select id='sel_Year'></select> 年<select id='sel_Month'></select> 月<select id='sel_Day'></select> 日<select id='sel_Hour'></select> 時<input type='radio' id='gender' name='gender' value='M' checked>男<input type='radio' name='gender' value='F'>女<input type='button' value='現在時間*' id='btnNowDate'></div></div><table border='0'><tr><td><div id='main6' class='mainDiv'></div></td><td><div id='main7' class='mainDiv'></div></td><td><div id='main8' class='mainDiv'></div></td><td><div id='main9' class='mainDiv'></div></td></tr><tr><td><div id='main5' class='mainDiv'></div></td><td rowspan='2' colspan='2'><div id='mainHome' class='mainDivCenter'></div></td><td><div id='main10' class='mainDiv'></div></td></tr><tr><td><div id='main4' class='mainDiv'></div></td><td><div id='main11' class='mainDiv'></div></td></tr><tr><td><div id='main3' class='mainDiv'></div></td><td><div id='main2' class='mainDiv'></div></td><td><div id='main1' class='mainDiv'></div></td><td><div id='main12' class='mainDiv'></div></td></tr></table></div>");
 	  for (i=1900;i<=2049;i++){ $("#sel_Year").append($("<option></option>").attr("value",i).text(i)); }
 	  for (i=1;i<=12;i++){ $("#sel_Month").append($("<option></option>").attr("value",i).text(i)); }
 	  for (i=1;i<=31;i++){ $("#sel_Day").append($("<option></option>").attr("value",i).text(i)); }
@@ -34,6 +34,7 @@
 	  //初始日期
 	  this.getNowDate();
 	  this.clearPalce();
+	  ziweiUI.genNowDateZiwei();
 	},
 	clearPalce:function (){
 		for (i=0;i<12;i++){ 
@@ -247,8 +248,7 @@ var ziwei = {
 $(document).ready(function () {
 	ziweiUI.initial();
 	ziweiUI.right2left=false;
-	$("#goQuery").click(function () {ziweiUI.genZiwei();});
 	$("#btnNowDate").click(function () {ziweiUI.genNowDateZiwei();});
-	$("select, input[type=radio]").change(function () {ziweiUI.cleanZiwei();});
+	$("select, input[type=radio]").change(function () {ziweiUI.genZiwei();});
 	$(window).resize(function() { ziweiUI.resize();});
 });
