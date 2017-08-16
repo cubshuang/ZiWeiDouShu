@@ -25,7 +25,7 @@
 	  this.resize();
 	  //畫紫微斗數空表格
 	  $("#container").append("<div id='main'><div id='queryDiv'><b>紫微斗數命盤</b><input type='button' value='現在時間*' id='btnNowDate'><div id='sel_Solar'>西元<select id='sel_Year'></select> 年<select id='sel_Month'></select> 月<select id='sel_Day'></select> 日<select id='sel_Hour'></select> 時<input type='radio' id='gender' name='gender' value='M' checked>男<input type='radio' name='gender' value='F'>女<input type='button' value='查詢' id='goQuery'></div></div><table border='0'><tr><td><div id='main6' class='mainDiv'></div></td><td><div id='main7' class='mainDiv'></div></td><td><div id='main8' class='mainDiv'></div></td><td><div id='main9' class='mainDiv'></div></td></tr><tr><td><div id='main5' class='mainDiv'></div></td><td rowspan='2' colspan='2'><div id='mainHome' class='mainDivCenter'></div></td><td><div id='main10' class='mainDiv'></div></td></tr><tr><td><div id='main4' class='mainDiv'></div></td><td><div id='main11' class='mainDiv'></div></td></tr><tr><td><div id='main3' class='mainDiv'></div></td><td><div id='main2' class='mainDiv'></div></td><td><div id='main1' class='mainDiv'></div></td><td><div id='main12' class='mainDiv'></div></td></tr></table></div>");
-	  for (i=1900;i<=2100;i++){ $("#sel_Year").append($("<option></option>").attr("value",i).text(i)); }
+	  for (i=1921;i<=2020;i++){ $("#sel_Year").append($("<option></option>").attr("value",i).text(i)); }
 	  for (i=1;i<=12;i++){ $("#sel_Month").append($("<option></option>").attr("value",i).text(i)); }
 	  for (i=1;i<=31;i++){ $("#sel_Day").append($("<option></option>").attr("value",i).text(i)); }
 	  for (i=0;i<EarthlyBranches.length;i++){ 
@@ -194,22 +194,15 @@ var ziwei = {
 		Place12=new Array(12);
 		//準備開始組星星
 		for (i=0;i<12;i++){
-			var StarA,StarB,StarC,Star6;
-			var lenStar=[0,0,0,0];
+			var StarA,StarB,StarC,Star6,lenStar=[0,0,0,0];
 			StarA=[];StarB=[];StarC=[];Star6=[];
 			for (k=0;k<8;k++){
-				//天府星系
+				//天府星系 & 紫微星系 & 六凶星 & 六吉星 & 其他星矅StarO_S0.length
 				if (sT08[k]==i){ StarA[lenStar[0]]=StarM_A14[k+6]+this.getS04Str(StarM_A14[k+6],sS04); lenStar[0]+=1; }
-				if (k<6){
-					//紫微星系 & 六凶星 & 六吉星
-					if (sZ06[k]==i){ StarA[lenStar[0]]=StarM_A14[k]+this.getS04Str(StarM_A14[k],sS04); lenStar[0]+=1; }
-					if (sB06[k]==i){ StarB[lenStar[1]]=StarM_B06[k]; lenStar[1]+=1;}
-					if (sG07[k]==i){ Star6[lenStar[3]]=StarM_A07[k]+this.getS04Str(StarM_A07[k],sS04); lenStar[3]+=1; }
-					//其他星矅StarO_S0.length
-					if (k<5){
-						if (OS05[k]==i){ StarC[lenStar[2]]=StarO_S05[k]; lenStar[2]+=1;}
-					}
-				}
+				if (sZ06[k]==i){ StarA[lenStar[0]]=StarM_A14[k]+this.getS04Str(StarM_A14[k],sS04); lenStar[0]+=1; }
+				if (sB06[k]==i){ StarB[lenStar[1]]=StarM_B06[k]; lenStar[1]+=1;}
+				if (sG07[k]==i){ Star6[lenStar[3]]=StarM_A07[k]+this.getS04Str(StarM_A07[k],sS04); lenStar[3]+=1; }
+				if (OS05[k]==i){ StarC[lenStar[2]]=StarO_S05[k]; lenStar[2]+=1;}
 			}
 			//塞入位置
 	  		Place12[i]={
