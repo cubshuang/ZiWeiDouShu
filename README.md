@@ -8,13 +8,13 @@ by using Html+JavaScript+CSS.
 #### 【命身十二宫】
 * 命宮、父母宮、福德宮、田宅宮、官祿宮、交友宮、遷移宮、疾厄宮、財帛宮、子女宮、夫妻宮、兄弟宮、身宮
 #### 【各級星曜】
-* **主星**
+**主星**
 * 紫微、天機、太陽、武曲、天同、廉貞、天府、太陰、貪狼、巨門、天相、天梁、七殺、破軍
-* **輔星**
+**輔星**
 * 六吉星：文昌、文曲、左輔、右弼、天魁、天鉞、祿存
 * 四化星：化祿、化權、化科、化忌
 * 六煞星：擎羊、陀羅、火星、鈴星、天空、地劫
-* **雜曜**
+**雜曜**
 * 天馬、龍池、鳳閣、紅鸞、天喜
 >[目前版本僅列示以上星曜]
 
@@ -27,3 +27,8 @@ by using Html+JavaScript+CSS.
 
 ## Reference
 * Wiki [紫微斗數](https://zh.wikipedia.org/wiki/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0)
+
+## 版本
+* v1:Original version
+* v2:Seperate html render and ziwei core
+* master:repalce lunar.js versoin
