@@ -31,7 +31,10 @@ by using Html+JavaScript+CSS.
 * Wiki [紫微斗數](https://zh.wikipedia.org/wiki/%E7%B4%AB%E5%BE%AE%E6%96%97%E6%95%B0)
 
 ## 版本
-* v1:Original version
-* v2:Seperate html render & ziwei core
-* v3:repalce lunar.js, ziwei.js seperate to ziweicore.js & ziweicoreui.js
-* [master]@v3
+* v1:原始版本
+* v2:將生成html與計算命盤的部分分開
+* v3: 
+  * 1.使用另一個lunar.js，增加可計算的年份
+  * 2.將ziwei.js分拆為ziweicore.js及ziweicoreui.js
+* 目前版本:v3 [master]
+
