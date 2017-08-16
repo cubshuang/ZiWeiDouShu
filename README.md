@@ -33,6 +33,6 @@ by using Html+JavaScript+CSS.
 ## 版本
 * v1:原始版本
 * v2:將生成html與計算命盤的部分分開
-* v3: 1.使用另一個lunar.js，增加可計算的年份 2.將ziwei.js分拆為ziweicore.js及ziweicoreui.js
-* 目前版本:v3 [master]
+* v3.1: 1.使用另一個lunar.js，增加可計算的年份 2.將ziwei.js分拆為ziweicore.js及ziweicoreui.js
+* 目前版本:v3.1 [master]
 
