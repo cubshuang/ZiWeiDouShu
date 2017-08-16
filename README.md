@@ -32,5 +32,6 @@ by using Html+JavaScript+CSS.
 
 ## 版本
 * v1:Original version
-* v2:Seperate html render and ziwei core
-* master:repalce lunar.js versoin
+* v2:Seperate html render & ziwei core
+* v3:repalce lunar.js, ziwei.js seperate to ziweicore.js & ziweicoreui.js
+* [master]@v3
