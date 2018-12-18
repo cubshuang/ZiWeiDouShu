@@ -1,31 +1,32 @@
-body { padding: 15px 20px 20px 20px;margin: 0;font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; background-image:url('../img/star.png');background-repeat:repeat;}
-table{border:3px #000007 solid; padding:1px;}
-#divZiWei,#main,.StarA,.StarB,.StarC,.MangA,.MangB,.MangC,.MangY10,.MangY1,.maincopy{position:absolute;}
-#container{position:relative;}
-#menu{position:absolute;top:0;right:0;display:none;}
+body { padding: 20px;margin: 0;background-image:url('../img/star.png');background-repeat:repeat;}
+h2{ margin:5px 0;}
+.ziwei{ border:4px darkgray groove; padding:1px; width:616px;height:616px; /*(margin*2 + border*2 + body) *4 => (2+2+150)*4=616 */}
+.ziwei>div { position:relative; display:flex; }
+.ziwei>div>div { border:1px solid #B7B7B7;margin:1px;width:150px;height:150px;position:relative;font-size:12px;}
+#zwHome{ width:304px; height:304px; /*margin-top + border-top + height + border-bottom + margin-bottom => :1+1+300+1+1*/}
+#zw4,#zw11{ position:absolute; top:154px; left:0px;	/*margin-top + border-top + height + border-bottom + margin-bottom => :1+1+150+1+1*/}
+#zw11{ left:462px; /* =>P10(margin*2+border*2+body)+PH(margin*2+border*2+body) => (2+2+150)+(2+2+304) */}
 #queryDiv{ margin:-3px 0 8px 0;}
-#queryDiv b{font-size:24px;margin-right:25px;}
 #queryDiv input[type=button],select,input[type=radio]:first-of-type{margin-left:15px;}
-#sel_Launar{display:none;}
-#sel_Solar{background-color:#CCFFCC;border: 3px solid #CCFFCC;margin:5px 0 10px 0;}
-.mainDiv,.mainDivCenter{background-image:url('../img/star_empty.png');background-repeat:repeat;}
-.mainDiv{border:1px solid #B7B7B7;margin:1px;width:150px;height:150px;position:relative;font-size:12px;}
-.mainDivSel,.mainDiv:hover {border:dashed 2pt red;margin:0px;}
-.mainDivCenter{position:relative;border:1px solid #B7B7B7;margin:1px;width:308px;height:308px;font-weight: bold;}
-.mainDivCenter div{text-align:left;margin:10px;}
-.mainDivCenter .maincopy{bottom:0;right:0;font-size:12px;font-weight: normal;}
+.zwDivCenter{position:relative;border:1px solid #B7B7B7;margin:1px;width:308px;height:308px;font-weight: bold;}
+.zwDivCenter div{text-align:left;margin:10px;}
+.zwDivCenter .zwcopy{bottom:0;right:0;font-size:12px;font-weight: normal;}
+.StarA,.StarB,.StarC,.MangA,.MangB,.MangC,.MangY10,.MangY1,.zwcopy{position:absolute;}
 .starDiv{border:0px solid blue;margin:5px;}
-.StarA{text-align: right;top:0;color:blue;}
+.StarA{top:0;color:blue;}
 .StarA span{color:Fuchsia;}
-.Star4{margin-top:8px;}
-.Star4 b{color:#8000FF;font-weight:normal;}
+.Star4 {margin-top:8px;}
+.Star4 span{color:#8000FF;font-weight:normal;}
 .StarB{color:Red;top:0;}
 .StarC{text-align: right;top:75px;right:0;width:150px;}
+.StarA,.StarC{text-align: right;}
 .StarAll{display:none;}
-.MangA{bottom:0;left:0;}
-.MangB{width:150px;text-align: center;font-weight:bold;bottom:0;right:5px;}
-.MangC{bottom:0;right:0;color:blue;}
-.MangY10{text-align: center;width:150px;height:20px;bottom:40px;right:5px;color:purple;}
-.MangY1{text-align: center;width:130px;height:20px;bottom:20px;right:5px;color:navy;}
-.zwStarRight{right:0;}
-.zwStarLeft{left:0;}
+.MangB{width:150px;font-weight:bold;}
+.MangC{color:blue;}
+.MangA,.MangB,.MangC{bottom:0;}
+.MangY10,.MangY1{width:150px; height:20px;}
+.MangY10,.MangY1,.MangB{text-align: center; right:5px;}
+.MangY10{bottom:40px;color:purple;}
+.MangY1{bottom:20px;color:navy;}
+.zwStarRight,.MangC{right:0;}
+.zwStarLeft,.MangA{left:0;}
