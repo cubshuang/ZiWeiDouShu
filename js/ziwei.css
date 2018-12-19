@@ -1,12 +1,12 @@
 body { padding: 20px;margin: 0;background-image:url('../img/star.png');background-repeat:repeat;}
-h2{ margin:5px 0;}
 .ziwei{ border:4px darkgray groove; padding:1px; width:616px;height:616px; /*(margin*2 + border*2 + body) *4 => (2+2+150)*4=616 */}
 .ziwei>div { position:relative; display:flex; }
 .ziwei>div>div { border:1px solid #B7B7B7;margin:1px;width:150px;height:150px;position:relative;font-size:12px;}
 #zwHome{ width:304px; height:304px; /*margin-top + border-top + height + border-bottom + margin-bottom => :1+1+300+1+1*/}
 #zw4,#zw11{ position:absolute; top:154px; left:0px;	/*margin-top + border-top + height + border-bottom + margin-bottom => :1+1+150+1+1*/}
 #zw11{ left:462px; /* =>P10(margin*2+border*2+body)+PH(margin*2+border*2+body) => (2+2+150)+(2+2+304) */}
-#queryDiv{ margin:-3px 0 8px 0;}
+#queryDiv h2{ margin:0;}
+#queryDiv { margin-bottom:5px; padding:5px;width:616px; background-color:#CCFFCC;}
 #queryDiv input[type=button],select,input[type=radio]:first-of-type{margin-left:15px;}
 .zwDivCenter{position:relative;border:1px solid #B7B7B7;margin:1px;width:308px;height:308px;font-weight: bold;}
 .zwDivCenter div{text-align:left;margin:10px;}
