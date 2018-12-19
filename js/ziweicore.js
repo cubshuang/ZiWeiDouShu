@@ -18,10 +18,10 @@ var ziwei = {
 		h=h_Solar;
 		g=g_Solar;
 		//年:天干地支
-		y1Pos=jQuery.inArray(y.substring(0,1),HeavenlyStems);
-		y2Pos=jQuery.inArray(y.substring(1,2),EarthlyBranches);
+		y1Pos=HeavenlyStems.indexOf(y.substring(0,1));
+		y2Pos=EarthlyBranches.indexOf(y.substring(1,2));
 		//時:地支
-		hPos=jQuery.inArray(h,EarthlyBranches);	
+		hPos=EarthlyBranches.indexOf(h);	
 		//設定紫微斗數
 		this.setZiwei(d);
 		//stepSetStar
@@ -44,10 +44,10 @@ var ziwei = {
 		for (i=0;i<size;i++){ starArray[i]=STAR[i][PosArr[i]]; } return starArray;
 	},
 	putS04Str:function (starName,STAR){
-		return (jQuery.inArray(starName,STAR)>=0)?"<b>"+StarM_S04[jQuery.inArray(starName,STAR)].substring(1,2)+"</b>":"　";
+		return (STAR.indexOf(starName)>=0)?"<b>"+StarM_S04[STAR.indexOf(starName)].substring(1,2)+"</b>":"　";
 	},
 	getS04Str:function (starName,STAR){
-		return (jQuery.inArray(starName,STAR)>=0)?StarM_S04[jQuery.inArray(starName,STAR)]:"";
+		return (STAR.indexOf(starName)>=0)?StarM_S04[STAR.indexOf(starName)]:"";
 	},
 	setZiwei:function (d){
     	//重排宮位
@@ -55,13 +55,13 @@ var ziwei = {
     	//安十二宮，安命宮、身宮
 		l=EarthlyBranches[((12-hPos)+1+m*1.0)%12];
 		b=EarthlyBranches[(12-((22-hPos)+1-m*1.0)%12)%12];
-		lPos=jQuery.inArray(l,EarthlyBranches);
-		bPos=jQuery.inArray(b,EarthlyBranches);
+		lPos=EarthlyBranches.indexOf(l);
+		bPos=EarthlyBranches.indexOf(b);
 		//安五行局
 		f=FiveElements[FiveEleArr[y1Pos%5][((lPos-(lPos%2==0?0:1))/2)%6]];
 		//起紫微表
-		z=EarthlyBranches[FiveEleTable[jQuery.inArray(f,FiveElements)][d-1]];
-		zPos=jQuery.inArray(z,EarthlyBranches);
+		z=EarthlyBranches[FiveEleTable[FiveElements.indexOf(f)][d-1]];
+		zPos=EarthlyBranches.indexOf(z);
 	},
 	stepSetStar:function (y,m,d,h){
 		//準備星星
