@@ -1,4 +1,5 @@
-body { padding: 20px;margin: 0;background-image:url('../img/star.png');background-repeat:repeat;}
+body { padding: 20px;margin: 0;background-image:url('../img/star.png');background-repeat:repeat;
+    display:flex; align-items: center;justify-content: center;}
 .ziwei{ border:4px darkgray groove; padding:1px; width:616px;height:616px; /*(margin*2 + border*2 + body) *4 => (2+2+150)*4=616 */}
 .ziwei>div { position:relative; display:flex; }
 .ziwei>div>div { border:1px solid #B7B7B7;margin:1px;width:150px;height:150px;position:relative;font-size:12px;}
