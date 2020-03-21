@@ -1,17 +1,17 @@
-body { padding: 20px;margin: 0;background-image:url('../img/star.png');background-repeat:repeat;
-    display:flex; align-items: center;justify-content: center;}
-.ziwei{ border:4px darkgray groove; padding:1px; width:616px;height:616px; /*(margin*2 + border*2 + body) *4 => (2+2+150)*4=616 */}
-.ziwei>div { position:relative; display:flex; }
-.ziwei>div>div { border:1px solid #B7B7B7;margin:1px;width:150px;height:150px;position:relative;font-size:12px;}
-#zwHome{ width:304px; height:304px; /*margin-top + border-top + height + border-bottom + margin-bottom => :1+1+300+1+1*/}
-#zw4,#zw11{ position:absolute; top:154px; left:0px;	/*margin-top + border-top + height + border-bottom + margin-bottom => :1+1+150+1+1*/}
-#zw11{ left:462px; /* =>P10(margin*2+border*2+body)+PH(margin*2+border*2+body) => (2+2+150)+(2+2+304) */}
+body { padding: 0px 50px;margin: 0;background-image:url('../img/star.png');background-repeat:repeat;}
+.container,.ziwei{ display: grid; width:100%;}
+.container{height:100%; grid-template-rows: fit-content(100%);}
+.ziwei{ border:4px darkgray groove; padding:1px; height:90%;
+	grid-template-columns: repeat(4,25%);
+	grid-template-rows: repeat(4,25%);}
+.zwDivCenter{ grid-column-start: 2; grid-column-end: 4; grid-row-start: 2; grid-row-end: 4; }
+.ziwei>div { border:1px solid #B7B7B7;margin:1px;position:relative;font-size:1em;}
 #queryDiv h2{ margin:0;}
-#queryDiv div { margin-bottom:5px; padding:5px;width:616px; background-color:#CCFFCC;}
+#queryDiv div { margin-bottom:5px; padding:5px; background-color:#CCFFCC;}
 #queryDiv input[type=button],select,input[type=radio]:first-of-type{margin-left:15px;}
-.zwDivCenter{position:relative;border:1px solid #B7B7B7;margin:1px;width:308px;height:308px;font-weight: bold;}
+.zwDivCenter{position:relative;border:1px solid #B7B7B7;margin:1px;font-weight: bold;}
 .zwDivCenter div{text-align:left;margin:10px;}
-.zwDivCenter .zwcopy{bottom:0;right:0;font-size:12px;font-weight: normal;}
+.zwDivCenter .zwcopy{bottom:0;right:0;font-size:1em;font-weight: normal;}
 .StarA,.StarB,.StarC,.MangA,.MangB,.MangC,.MangY10,.MangY1,.zwcopy{position:absolute;}
 .starDiv{border:0px solid blue;margin:5px;}
 .StarA{top:0;color:blue;}
@@ -19,15 +19,15 @@ body { padding: 20px;margin: 0;background-image:url('../img/star.png');backgroun
 .Star4 {margin-top:8px;}
 .Star4 span{color:#8000FF;font-weight:normal;}
 .StarB{color:Red;top:0;}
-.StarC{text-align: right;top:75px;right:0;width:150px;}
+.StarC{text-align: right;top:75px;right:0;width:100%;}
 .StarA,.StarC{text-align: right;}
 .StarAll{display:none;}
-.MangB{width:150px;font-weight:bold;}
+.MangB{width:100%;font-weight:bold;}
 .MangC{color:blue;}
 .MangA,.MangB,.MangC{bottom:0;}
-.MangY10,.MangY1{width:150px; height:20px;}
-.MangY10,.MangY1,.MangB{text-align: center; right:5px;}
-.MangY10{bottom:40px;color:purple;}
-.MangY1{bottom:20px;color:navy;}
+.MangY10,.MangY1{width:100%; height:1.5em;font-size:0.8em;}
+.MangY10,.MangY1,.MangB{text-align: center;}
+.MangY10{bottom:3.2em;color:purple;}
+.MangY1{bottom:1.8em;color:navy;}
 .zwStarRight,.MangC{right:0;}
 .zwStarLeft,.MangA{left:0;}
