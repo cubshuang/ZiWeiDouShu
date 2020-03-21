@@ -6,13 +6,14 @@ body { padding: 0px 50px;margin: 0;background-image:url('../img/star.png');backg
 	grid-template-rows: repeat(4,25%);}
 .zwDivCenter{ grid-column-start: 2; grid-column-end: 4; grid-row-start: 2; grid-row-end: 4; }
 .ziwei>div { border:1px solid #B7B7B7;margin:1px;position:relative;font-size:1em;}
-#queryDiv h2{ margin:0;}
-#queryDiv div { margin-bottom:5px; padding:5px; background-color:#CCFFCC;}
-#queryDiv input[type=button],select,input[type=radio]:first-of-type{margin-left:15px;}
+.zwDivHeader,.zwDivHeader h2{ margin:10px 0; position:relative;}
+.zwDivHeader>div{top:0;right:0;}
+.zwDivHeader div { margin-bottom:5px; padding:5px; background-color:#CCFFCC;}
+.zwDivHeader input[type=button],select,input[type=radio]:first-of-type{margin-left:15px;}
 .zwDivCenter{position:relative;border:1px solid #B7B7B7;margin:1px;font-weight: bold;}
 .zwDivCenter div{text-align:left;margin:10px;}
 .zwDivCenter .zwcopy{bottom:0;right:0;font-size:1em;font-weight: normal;}
-.StarA,.StarB,.StarC,.MangA,.MangB,.MangC,.MangY10,.MangY1,.zwcopy{position:absolute;}
+.StarA,.StarB,.StarC,.MangA,.MangB,.MangC,.MangY10,.MangY1,.zwcopy,.zwDivHeader>div{position:absolute;}
 .starDiv{border:0px solid blue;margin:5px;}
 .StarA{top:0;color:blue;}
 .StarA span{color:Fuchsia;}
