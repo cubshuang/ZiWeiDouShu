@@ -1,9 +1,10 @@
-body { padding: 0px 50px;margin: 0;background-image:url('../img/star.png');background-repeat:repeat;}
-.container,.ziwei{ display: grid; width:100%;}
-.container{height:100%; grid-template-rows: fit-content(100%);}
-.ziwei{ border:4px darkgray groove; padding:1px; height:90%;
+body { padding: 10px 25px;margin: 0;background-image:url('../img/star.png');background-repeat:repeat;}
+.ziwei{ display: grid;border:4px darkgray groove; padding:1px; height:90%;
 	grid-template-columns: repeat(4,25%);
 	grid-template-rows: repeat(4,25%);}
+.ziwei,.zwDivHeader{ width:60%; }
+@media only screen and (max-width:1024px){
+.ziwei,.zwDivHeader{ width:100%; } body{padding-bottom: 20px;}}
 .zwDivCenter{ grid-column-start: 2; grid-column-end: 4; grid-row-start: 2; grid-row-end: 4; }
 .ziwei>div { border:1px solid #B7B7B7;margin:1px;position:relative;font-size:1em;}
 .zwDivHeader,.zwDivHeader h2{ margin:10px 0; position:relative;}
